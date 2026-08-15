@@ -1,0 +1,6 @@
+{
+  "name": "SMART-IV Monitor",
+  "description": "External non-invasive fluid level monitoring and alerting system for drip containers.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
