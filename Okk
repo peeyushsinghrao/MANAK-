@@ -1,0 +1,3382 @@
+# 🔥 DRIP ALERT — GOD-LEVEL FULL PROJECT RECOVERY, REBUILD & INTEGRATION MASTER PROMPT
+
+ROLE:
+You are the Principal Engineer, Product Architect, Flutter/Android Engineer, ESP32/BLE Engineer, UX Architect, QA Engineer, Security Engineer, Systems Integrator, and Technical Recovery Lead for an EXISTING project called:
+
+DRIP ALERT
+/ SMART-IV MONITOR
+
+This is NOT a normal feature request.
+
+The current application is in a poor state:
+- notifications are currently working,
+- alarm/notification functionality exists in some form,
+- but alarm dismissal/control is unreliable,
+- the UI is overly crowded,
+- the workflow is confusing,
+- many buttons/features appear fake or disconnected,
+- BLE/device connection appears largely simulated or non-functional,
+- several previously requested requirements are missing,
+- the nurse workflow is not understandable,
+- many screens contain too many controls,
+- technical and operational functionality are mixed together,
+- the current app does not behave like a coherent finished product.
+
+Your mission is to TAKE THIS EXISTING PROJECT, FULLY UNDERSTAND IT, RECOVER WHAT IS ACTUALLY USABLE, REMOVE/REBUILD WHAT IS BROKEN, AND TURN IT INTO A COHERENT, NURSE-FIRST, FULLY WIRED, TESTED EDUCATIONAL PROTOTYPE.
+
+This is a RECOVERY + REFACTOR + INTEGRATION + UX REBUILD.
+
+DO NOT blindly preserve the current implementation.
+
+DO NOT blindly rewrite the whole project.
+
+Use evidence and actual code to decide what stays, what is repaired, what is replaced, and what is removed/hidden.
+
+============================================================
+0. ABSOLUTE SAFETY BOUNDARY
+============================================================
+
+This project is an EDUCATIONAL / INSPIRE-MANAK PROTOTYPE.
+
+It is NOT a certified medical device.
+
+It must NOT:
+- connect to a real patient
+- connect to a real clinical IV line
+- control infusion flow
+- control medical equipment
+- make clinical decisions
+- claim to prevent medical complications
+- claim clinical certification
+- claim patient safety
+- be tested on humans
+
+All physical testing must use:
+- mock IV bottle
+- non-medical fluid
+- safe bench setup
+- simulation/demonstration environment
+
+Any UI wording that could falsely imply clinical certification must be corrected.
+
+============================================================
+1. CURRENT PROJECT REALITY
+============================================================
+
+The previously audited repository indicates a project approximately built around:
+
+Flutter / Dart
++
+Android
++
+ESP32 / ESP32-CAM concepts
++
+BLE
++
+patient management
++
+threshold monitoring
++
+local notifications
++
+audio alarm
++
+local storage
+
+The audit also identified major weaknesses:
+
+- UI-driven business logic
+- weak state management
+- fragile BLE parsing
+- weak reconnect handling
+- unreliable background execution
+- notification spam risks
+- weak alarm acknowledgement/control
+- SharedPreferences used as a pseudo-database
+- analog/ADC-based level sensing
+- no verified ESP32-CAM computer-vision pipeline
+- raw BLE details exposed in UI
+- weak multi-patient workflow
+- no dependable complete nurse-first information architecture
+- missing or fake features
+- inadequate test coverage
+- technical documentation mixed with operational UX
+
+IMPORTANT:
+
+These findings are historical/audit findings.
+
+VERIFY THEM AGAINST THE CURRENT REPOSITORY.
+
+Do not blindly assume they are still true.
+
+============================================================
+2. MOST IMPORTANT PRODUCT PRINCIPLE
+============================================================
+
+The product must be understandable by a nurse/caregiver who may know how to use a phone but may NOT understand technical software.
+
+The nurse should NOT need to understand:
+
+- BLE
+- GATT
+- UUID
+- MAC address
+- ADC
+- packets
+- CRC
+- telemetry
+- GPIO
+- FreeRTOS
+- firmware
+- computer vision
+- protocol internals
+
+The nurse should understand:
+
+PATIENT
+BED
+WARD
+BOTTLE
+FLUID
+LEVEL
+STATUS
+ALERT
+DEVICE
+ACTION
+
+The product should feel:
+
+SIMPLE
+CALM
+CLEAR
+FAST
+TRUSTWORTHY
+LOW-COGNITIVE-LOAD
+OPERATION-FIRST
+
+============================================================
+3. THE GOLDEN UX RULE
+============================================================
+
+A nurse should be able to understand the app without training.
+
+If I open the app:
+
+I should immediately know:
+
+1. Who is being monitored?
+2. Which bed?
+3. What is the current status?
+4. Is there a problem?
+5. What action is needed?
+6. Is the device actually connected?
+7. Is the data live?
+
+If the answer to these is hidden behind multiple screens, redesign the workflow.
+
+============================================================
+4. SOURCE-OF-TRUTH RULE
+============================================================
+
+The GitHub repository is the implementation source of truth.
+
+Also consider:
+- current project documentation
+- uploaded UI references
+- existing specification documents
+- previously established requirements from the project conversation
+- actual firmware
+- actual Android configuration
+- actual dependencies
+
+BUT:
+
+CODE > DOCUMENTATION CLAIMS
+
+IMPLEMENTED > PROPOSED
+
+TESTED > CLAIMED
+
+Do not implement something simply because it appears in an old document.
+
+============================================================
+5. IMPORTANT: DO NOT TRUST THE CURRENT UI
+============================================================
+
+The current UI is NOT automatically the correct product design.
+
+The current UI is known to be:
+- crowded
+- confusing
+- overly technical
+- full of too many controls
+- not nurse-first
+
+Therefore:
+
+Inspect it.
+Understand it.
+Extract useful assets/components.
+Then redesign the information architecture.
+
+Do NOT preserve bad UX merely because it already exists.
+
+============================================================
+6. IMPORTANT: DO NOT TRUST THE CURRENT FUNCTIONALITY
+============================================================
+
+A button existing does NOT mean the feature exists.
+
+Every important feature must be classified:
+
+REAL + WORKING
+REAL + PARTIAL
+UI ONLY
+MOCK
+FAKE
+BROKEN
+DEAD
+UNUSED
+UNKNOWN
+
+This classification must be based on actual execution paths.
+
+============================================================
+7. PHASE 0 — COMPLETE PROJECT FORENSIC AUDIT
+============================================================
+
+Before major coding:
+
+Inspect the COMPLETE repository.
+
+Inspect:
+
+- root
+- pubspec.yaml
+- lock files
+- Flutter source
+- models
+- services
+- screens
+- widgets
+- state management
+- repositories
+- storage
+- database
+- notifications
+- alarms
+- BLE
+- AndroidManifest
+- Gradle
+- Kotlin
+- permissions
+- background services
+- ESP32 firmware
+- ESP32-CAM code
+- assets
+- sounds
+- tests
+- configuration
+- environment files
+- documentation
+- any 13-document system
+- engineering tools
+- labs
+- novelty pages
+- test pages
+- diagnostics
+
+Identify:
+
+WHAT EXISTS
+WHAT WORKS
+WHAT IS FAKE
+WHAT IS PARTIAL
+WHAT IS BROKEN
+WHAT IS UNUSED
+WHAT IS MISSING
+
+Do not make large changes until this audit is complete.
+
+============================================================
+8. CREATE A CURRENT-STATE RECOVERY MAP
+============================================================
+
+Internally map:
+
+USER
+↓
+UI
+↓
+STATE
+↓
+BUSINESS LOGIC
+↓
+SERVICES
+↓
+BLE
+↓
+ESP32
+↓
+SENSOR
+↓
+ALERT ENGINE
+↓
+PHONE ALERT
+↓
+DEVICE BUZZER
+↓
+STORAGE
+↓
+HISTORY
+
+Find every broken link.
+
+The objective is:
+
+NOT "is code present?"
+
+The objective is:
+
+"Does the complete chain execute correctly?"
+
+============================================================
+9. KEEP WHAT ACTUALLY WORKS
+============================================================
+
+The current notification system appears to work better than many other parts.
+
+DO NOT destroy working notification functionality unnecessarily.
+
+Instead:
+
+1. verify it
+2. isolate it
+3. understand it
+4. connect it to the proper alert engine
+5. fix dismissal/acknowledgement behavior
+6. prevent duplicate notifications
+7. preserve working sound/notification capabilities
+
+Treat existing working code as valuable salvage.
+
+============================================================
+10. REBUILD THE PRODUCT AROUND ONE CLEAR WORKFLOW
+============================================================
+
+The core product workflow should be:
+
+OPEN APP
+↓
+DASHBOARD
+↓
+ADD PATIENT
+↓
+PATIENT DETAILS
+↓
+WARD + BED
+↓
+BOTTLE CAPACITY
+↓
+FLUID / MEDICATION
+↓
+CONNECT MONITOR
+↓
+SET ALERT LEVEL
+↓
+START MONITORING
+↓
+LEAVE APP
+↓
+DEVICE CONTINUES MONITORING
+↓
+LEVEL CHANGES
+↓
+WARNING / CRITICAL STATE
+↓
+PHONE ALERT + / OR DEVICE BUZZER
+↓
+NURSE IDENTIFIES BED
+↓
+NURSE OPENS ALERT
+↓
+ACKNOWLEDGE / MUTE / RESOLVE
+↓
+MONITORING CONTINUES
+
+Every step must be real.
+
+============================================================
+11. NURSE-FACING NAVIGATION
+============================================================
+
+The normal nurse experience should contain ONLY useful operational areas.
+
+Recommended structure:
+
+HOME / DASHBOARD
+PATIENTS
+ALERTS
+HISTORY
+SETTINGS
+
+Do not add 15 tabs.
+
+Do not show engineering controls.
+
+Do not overload a screen.
+
+Use progressive disclosure.
+
+============================================================
+12. ENGINEERING / ADMIN MODE
+============================================================
+
+Move technical tools away from normal nurse experience.
+
+Technical/admin area may contain:
+
+- BLE diagnostics
+- device information
+- calibration
+- sensor diagnostics
+- engineering logs
+- protocol tools
+- test tools
+- labs
+- 13 project documents
+- PRD
+- TRD
+- architecture
+- BLE protocol
+- calibration documentation
+- BOM
+- RTM
+- novelty analysis
+- test reports
+- firmware information
+- system diagnostics
+
+These must NOT clutter the operational nurse workflow.
+
+If appropriate, expose them under:
+
+ENGINEERING / ADMIN
+
+protected or separated from normal workflow.
+
+============================================================
+13. 13-DOCUMENT SYSTEM
+============================================================
+
+If the app already contains the 13 technical documents:
+
+DO NOT simply place all 13 into a huge screen.
+
+Create a proper Engineering Documentation Hub.
+
+Each document should have:
+
+TITLE
+CATEGORY
+DESCRIPTION
+STATUS
+OPEN / VIEW
+OPTIONAL DOWNLOAD
+
+Group them logically.
+
+Do not claim documents are "official", "certified", or "verified" unless that status is actually supported.
+
+============================================================
+14. ENGINEERING LABS
+============================================================
+
+If Labs exist:
+
+They must be clearly labeled as:
+
+SIMULATION
+DIAGNOSTIC
+ENGINEERING TOOL
+
+They must not pretend to control real medical equipment.
+
+If a lab is fake:
+
+Either implement it properly
+OR clearly label it as simulation
+OR hide/remove it from production navigation.
+
+============================================================
+15. ADD PATIENT — REQUIRED DATA
+============================================================
+
+Implement a simple patient workflow.
+
+Required fields:
+
+PATIENT NAME
+
+WARD
+
+BED NUMBER
+
+BOTTLE CAPACITY:
+
+100 mL
+250 mL
+500 mL
+1000 mL
+Custom
+
+FLUID / MEDICATION:
+
+Normal Saline
+Dextrose in Water
+Ringer's Lactate
+Metronidazole 500 mg
+Custom / Other
+
+Also include:
+
+Alert threshold
+Device assignment
+Monitoring state
+
+Do not invent medical calculations based on medication type.
+
+Fluid selection can be descriptive unless the real algorithm explicitly uses verified fluid properties.
+
+============================================================
+16. CUSTOM OPTIONS
+============================================================
+
+Custom bottle capacity must work.
+
+Custom fluid must work.
+
+Custom data must:
+
+- validate
+- save
+- reload
+- edit
+- delete safely
+- persist correctly
+
+No fake dropdown items.
+
+============================================================
+17. MULTI-PATIENT SUPPORT
+============================================================
+
+The dashboard must support multiple patient monitoring sessions.
+
+Each patient may have:
+
+PATIENT
+WARD
+BED
+BOTTLE
+FLUID
+DEVICE
+LEVEL
+THRESHOLD
+STATUS
+ALERT STATE
+
+Do not use global single-patient variables that prevent concurrent sessions.
+
+============================================================
+18. BED-FIRST DASHBOARD
+============================================================
+
+The nurse should be able to scan the screen quickly.
+
+Example:
+
+BED 04
+Aarav
+Normal Saline
+89 mL
+17%
+LOW
+● Monitoring
+
+Statuses:
+
+NORMAL
+LOW
+CRITICAL
+DEVICE OFFLINE
+SENSOR ERROR
+NOT MONITORING
+UNKNOWN
+
+Do not rely only on color.
+
+============================================================
+19. DEVICE PAIRING
+============================================================
+
+DO NOT make nurses interpret:
+
+MAC
+UUID
+SERVICE UUID
+CHARACTERISTIC UUID
+
+Instead use:
+
+CONNECT DEVICE
+SCAN
+SELECT FRIENDLY DEVICE NAME
+CONFIRM BED
+
+If QR pairing is feasible:
+implement it.
+
+If not:
+create a human-readable device selection workflow.
+
+Engineering mode can display technical identifiers.
+
+============================================================
+20. REAL BLE — NO FAKE CONNECTIONS
+============================================================
+
+THIS IS NON-NEGOTIABLE.
+
+The BLE connection must be real.
+
+Do not use:
+
+- fake "Connected"
+- timeout bypass
+- mock device success
+- static demo connection
+- hardcoded device state
+
+Connection flow:
+
+SCAN
+→ ACTUAL DEVICE FOUND
+→ CONNECT
+→ DISCOVER SERVICES
+→ DISCOVER CHARACTERISTICS
+→ SUBSCRIBE / READ
+→ RECEIVE REAL DATA
+→ UPDATE APP STATE
+
+If no physical device is available:
+show:
+
+NO DEVICE CONNECTED
+
+Do not pretend.
+
+============================================================
+21. BLE STATE MACHINE
+============================================================
+
+Implement explicit:
+
+IDLE
+SCANNING
+CONNECTING
+CONNECTED
+DISCOVERING
+READY
+MONITORING
+RECONNECTING
+DISCONNECTED
+ERROR
+
+Handle:
+
+- permission denial
+- Bluetooth disabled
+- timeout
+- device unavailable
+- device restart
+- out-of-range
+- malformed packet
+- service mismatch
+- characteristic mismatch
+- reconnect
+- stale data
+
+============================================================
+22. NO STALE DATA AS LIVE DATA
+============================================================
+
+Every telemetry update must have freshness.
+
+Display:
+
+CURRENT LEVEL: 17%
+LAST UPDATED: 2 seconds ago
+
+If data becomes stale:
+
+DEVICE OFFLINE
+or
+DATA STALE
+
+Do NOT continue showing the previous number as though it is live.
+
+============================================================
+23. REAL SENSOR DATA
+============================================================
+
+Current repository appears to use analog/ADC-based level sensing.
+
+Preserve it initially if it can be made reliable.
+
+Do NOT pretend ESP32-CAM computer vision exists if it does not.
+
+First stabilize:
+
+SENSOR
+→ ADC
+→ FILTER
+→ CALIBRATION
+→ LEVEL
+→ THRESHOLD
+→ ALERT
+
+============================================================
+24. SENSOR FILTERING
+============================================================
+
+Investigate actual sensor noise.
+
+Implement appropriate filtering.
+
+Possible:
+
+- median
+- moving average
+- debounce
+- hysteresis
+
+Do not blindly add complicated filters.
+
+Use the simplest method that solves the measured instability.
+
+============================================================
+25. CALIBRATION
+============================================================
+
+Implement a genuine calibration flow.
+
+Potential:
+
+FULL LEVEL
+→ capture
+
+EMPTY LEVEL
+→ capture
+
+SAVE CALIBRATION
+
+If the sensor supports intermediate calibration points:
+consider them.
+
+Calibration must:
+
+- persist
+- reload
+- validate
+- be resettable
+- show status
+- handle failure
+
+Do not display "Calibration Complete" unless the operation actually succeeded.
+
+============================================================
+26. LEVEL CALCULATION
+============================================================
+
+Current level may be represented as:
+
+0–100%
+
+Then:
+
+remaining volume = calibrated level × bottle capacity
+
+BUT:
+
+Do not assume percentage equals true physical volume unless the calibration/geometry supports it.
+
+Label values as:
+
+ESTIMATED
+
+unless experimentally validated.
+
+Do not invent accuracy.
+
+============================================================
+27. THRESHOLD SYSTEM
+============================================================
+
+The user should be able to choose:
+
+LOW WARNING LEVEL
+CRITICAL LEVEL
+
+Use human-readable values.
+
+For example:
+
+Alert when:
+100 mL remains
+
+and optionally show:
+20%
+
+Do not force nurses to understand abstract percentage values if mL is clearer.
+
+Allow custom threshold where appropriate.
+
+============================================================
+28. APP + DEVICE THRESHOLD SYNCHRONIZATION
+============================================================
+
+This must be a two-way contract.
+
+USER SETS THRESHOLD
+↓
+APP SAVES
+↓
+APP WRITES TO DEVICE
+↓
+DEVICE CONFIRMS
+↓
+APP SHOWS SYNCED
+
+If device write fails:
+
+THRESHOLD NOT SYNCED
+
+Do not show false success.
+
+============================================================
+29. TWO-LEVEL ALERT SYSTEM
+============================================================
+
+Use:
+
+WARNING
+CRITICAL
+
+Example only:
+
+WARNING
+40%
+
+CRITICAL
+20%
+
+These are example defaults, NOT medical standards.
+
+Make thresholds configurable.
+
+============================================================
+30. REAL ALERT ENGINE
+============================================================
+
+The alert engine must be independent of a visible screen.
+
+Architecture:
+
+SENSOR EVENT
+↓
+MONITORING ENGINE
+↓
+ALERT ENGINE
+↓
+PHONE NOTIFICATION
+↓
+PHONE SOUND/VIBRATION
+↓
+DEVICE BUZZER COMMAND
+
+A screen should DISPLAY an alert.
+
+A screen should NOT be solely responsible for generating the alert.
+
+This prevents alerts from stopping when the user leaves the screen.
+
+============================================================
+31. ALARM / NOTIFICATION BEHAVIOR
+============================================================
+
+The following must be real:
+
+PHONE ALERT
+DEVICE BUZZER
+VIBRATION
+NOTIFICATION
+ACKNOWLEDGE
+MUTE
+RESOLVE
+
+If a toggle says:
+
+PHONE ALERT = OFF
+
+then phone alert behavior must actually turn off.
+
+If:
+
+DEVICE BUZZER = OFF
+
+then device buzzer must actually stay disabled.
+
+No fake switches.
+
+============================================================
+32. ALARM DISMISSAL
+============================================================
+
+Current alarm reportedly triggers but does NOT reliably stop.
+
+Fix this completely.
+
+Define distinct actions:
+
+MUTE
+ACKNOWLEDGE
+RESOLVE
+
+MUTE:
+stops/reduces active audio behavior according to defined rules.
+
+ACKNOWLEDGE:
+records user acknowledgment.
+
+RESOLVE:
+closes the alert only when the defined condition is resolved.
+
+The user must not be trapped in an alarm that cannot be dismissed.
+
+Do not allow multiple audio players to stack.
+
+============================================================
+33. NO NOTIFICATION SPAM
+============================================================
+
+One threshold event should NOT generate 60 notifications.
+
+Example:
+
+Level:
+22
+21
+20
+19
+18
+
+→ ONE alert state.
+
+Not five alerts.
+
+Implement:
+
+alert latch
+state transitions
+cooldown
+deduplication
+
+============================================================
+34. NOTIFICATION CONTENT
+============================================================
+
+Notifications should identify:
+
+BED
+PATIENT
+LEVEL
+REMAINING VOLUME
+ALERT STATE
+
+Example:
+
+CRITICAL LOW FLUID
+
+Bed 04 • Aarav
+89 mL remaining
+
+Check the infusion.
+
+Do not use generic:
+
+"Something happened."
+
+============================================================
+35. BACKGROUND MONITORING
+============================================================
+
+The monitoring system must not rely on a visible screen.
+
+Investigate current Android requirements for:
+
+- BLE background operation
+- foreground service
+- connected-device service type
+- notification permission
+- battery optimization
+- service lifecycle
+
+Use official current Android documentation.
+
+Do NOT claim background monitoring works until physically tested.
+
+============================================================
+36. LOCKED SCREEN / CLOSED APP
+============================================================
+
+Test:
+
+APP OPEN
+APP MINIMIZED
+APP BACKGROUNDED
+SCREEN LOCKED
+SCREEN OFF
+APP REOPENED
+
+Determine actual behavior.
+
+If a limitation exists:
+show it clearly.
+
+Do not fake it.
+
+============================================================
+37. APP RESTART RECOVERY
+============================================================
+
+After restart:
+
+restore patient records
+restore monitoring configuration
+restore thresholds
+restore device assignment
+restore alert configuration
+
+BUT:
+
+do not claim device connected until real connection is established.
+
+============================================================
+38. DEVICE DISCONNECT ALERT
+============================================================
+
+Device disconnect is itself an important operational state.
+
+Example:
+
+⚫ DEVICE OFFLINE
+
+Bed 04 • Aarav
+
+Monitoring data unavailable.
+
+The user must immediately understand that:
+
+LOW FLUID
+
+and
+
+DEVICE OFFLINE
+
+are different problems.
+
+============================================================
+39. SENSOR ERROR
+============================================================
+
+If sensor data is invalid:
+
+SENSOR ERROR
+
+Do not display a made-up level.
+
+Use:
+
+--
+or
+DATA UNAVAILABLE
+
+============================================================
+40. MULTI-BED ALERT PRIORITIZATION
+============================================================
+
+If several patients are being monitored:
+
+Critical patients should be surfaced first.
+
+Dashboard may show:
+
+CRITICAL — 2
+LOW — 3
+NORMAL — 7
+
+But do not clutter the screen.
+
+============================================================
+41. HISTORY
+============================================================
+
+Create useful monitoring history.
+
+Examples:
+
+10:42
+Bed 04
+Level 30%
+Warning
+
+10:55
+Bed 04
+Level 20%
+Critical Alert
+
+10:57
+Alert acknowledged
+
+Only log meaningful events.
+
+Do not create enormous raw telemetry logs unnecessarily.
+
+============================================================
+42. OPTIONAL FLOW RATE / ETA
+============================================================
+
+Only implement if enough real telemetry exists.
+
+Potential:
+
+Flow rate
+mL/hr
+
+Estimated time remaining
+
+If insufficient data:
+
+Calculating…
+or
+Not available
+
+Never fabricate values.
+
+============================================================
+43. APP SETTINGS
+============================================================
+
+Settings should be simple.
+
+Potential:
+
+ALERTS
+Phone alert
+Sound
+Vibration
+Device buzzer
+Warning threshold
+Critical threshold
+
+DEVICE
+Connected device
+Reconnect
+Calibration
+Health
+
+APP
+Permissions
+Display
+Language if actually supported
+
+ENGINEERING
+Diagnostics
+Technical tools
+
+Do not create 30 settings just because they can exist.
+
+============================================================
+44. UI REBUILD
+============================================================
+
+The current UI must NOT be preserved simply because it exists.
+
+The redesign must follow:
+
+ONE SCREEN = ONE PRIMARY JOB
+
+Avoid:
+
+- 50 buttons on one page
+- technical dashboards everywhere
+- nested cards
+- unnecessary charts
+- raw device details
+- redundant navigation
+- giant forms
+- cluttered settings
+
+Use:
+
+clear hierarchy
+large primary action
+secondary actions hidden appropriately
+strong status states
+progressive disclosure
+
+============================================================
+45. UI SCREEN SET
+============================================================
+
+Create the minimum complete nurse-first screen system.
+
+Likely:
+
+1. Splash / startup
+2. First-time onboarding
+3. Dashboard
+4. Patients
+5. Add Patient
+6. Edit Patient
+7. Patient Details
+8. Connect Device
+9. Device Connected
+10. Monitoring
+11. Threshold Setup
+12. Active Alert
+13. Alerts Center
+14. History
+15. Settings
+16. Device Settings
+17. Calibration
+18. Permission states
+19. Empty states
+20. Error states
+21. Engineering/Admin
+22. Documentation Hub
+23. Engineering tools/labs
+
+Do NOT implement every screen as a giant independent page if a simpler flow works.
+
+============================================================
+46. ENGINEERING DOCS
+============================================================
+
+If the project currently has:
+
+PRD
+TRD
+System Architecture
+Hardware
+Software
+BLE Protocol
+Level Detection
+Novelty
+Testing
+Innovation Notebook
+Traceability
+Source Register
+Open Questions
+etc.
+
+keep them available in engineering/admin mode.
+
+Do not force nurse users to see them.
+
+============================================================
+47. DATA STORAGE
+============================================================
+
+Inspect existing storage.
+
+If SharedPreferences is currently overloaded:
+
+determine whether a small local database is necessary.
+
+Do not migrate automatically without reason.
+
+If migration is justified:
+
+preserve existing data.
+
+Test:
+
+old data
+→ migration
+→ new structure
+→ app restart
+
+============================================================
+48. DATA MODEL
+============================================================
+
+Design a coherent model around:
+
+User
+Patient
+Ward
+Bed
+Bottle
+Fluid
+Device
+MonitoringSession
+Threshold
+Alert
+NotificationEvent
+Calibration
+DeviceHealth
+
+Avoid duplicated state.
+
+Avoid global single-patient variables.
+
+============================================================
+49. SECURITY / PRIVACY
+============================================================
+
+Patient information is sensitive.
+
+Do not leak:
+
+patient names
+bed info
+fluid data
+private data
+
+into debug logs unnecessarily.
+
+Audit:
+
+authentication
+authorization
+BLE access
+local storage
+secrets
+API keys
+database permissions
+
+If authentication doesn't exist:
+document limitation.
+
+Do not pretend there is multi-user security if there is not.
+
+============================================================
+50. PERFORMANCE
+============================================================
+
+Fix:
+
+- excessive rebuilds
+- stream leaks
+- audio player leaks
+- notification loops
+- unnecessary polling
+- blocking firmware loops where relevant
+- unbounded logs
+- excessive telemetry history
+
+Target stable performance on ordinary Android devices.
+
+============================================================
+51. STATE MANAGEMENT
+============================================================
+
+Do not let individual screens independently control:
+
+BLE
+alerts
+monitoring
+patient state
+
+Create a coherent central source of truth.
+
+Suggested separation:
+
+PRESENTATION
+APPLICATION/STATE
+DOMAIN
+SERVICES
+DATA
+
+Use whatever implementation is most appropriate to the current codebase.
+
+Do not add architecture frameworks just for fashion.
+
+============================================================
+52. REAL FUNCTIONALITY RULE
+============================================================
+
+For EVERY major interactive feature:
+
+DEFINE
+→ IMPLEMENT
+→ CONNECT
+→ PERSIST
+→ HANDLE FAILURE
+→ TEST
+
+No exception.
+
+Examples:
+
+ADD PATIENT
+EDIT PATIENT
+DELETE PATIENT
+CONNECT
+DISCONNECT
+RECONNECT
+START
+STOP
+SET THRESHOLD
+SAVE
+CALIBRATE
+MUTE
+ACKNOWLEDGE
+RESOLVE
+VIEW HISTORY
+ENABLE/DISABLE ALERTS
+DEVICE BUZZER
+PHONE ALERT
+
+Every one must have a real implementation path.
+
+============================================================
+53. TEST MODE
+============================================================
+
+A clearly labeled DEMO / SIMULATION mode may exist.
+
+It may simulate level changes.
+
+BUT:
+
+DEMO DATA MUST NEVER APPEAR AS REAL DEVICE DATA.
+
+Clearly show:
+
+DEMO MODE
+
+============================================================
+54. ENGINEERING TEST MODE
+============================================================
+
+Provide safe tools for testing:
+
+- BLE
+- sensor
+- threshold
+- alert
+- buzzer
+- notification
+
+without requiring a real patient.
+
+============================================================
+55. CURRENT AUDIT DEFECTS TO INVESTIGATE
+============================================================
+
+Check specifically:
+
+1. BLE parser crash risk
+2. malformed packets
+3. reconnect failures
+4. notification flood
+5. alarm dismissal bug
+6. audio-player stacking/leaks
+7. stream subscription leaks
+8. stale values
+9. fake connection state
+10. fake buttons
+11. hardcoded values
+12. threshold sync mismatch
+13. SharedPreferences limitations
+14. missing multi-patient logic
+15. missing background service
+16. missing camera pipeline
+17. sensor noise
+18. no meaningful test coverage
+19. raw BLE details exposed
+20. confusing navigation
+
+Do not assume they exist.
+Verify.
+
+============================================================
+56. BUILD A REAL TEST SUITE
+============================================================
+
+At minimum:
+
+PATIENT TESTS
+- create
+- edit
+- delete
+- restart persistence
+- validation
+
+BLE TESTS
+- scan
+- connect
+- disconnect
+- reconnect
+- malformed packet
+- unavailable device
+- stale data
+
+THRESHOLD TESTS
+- set
+- save
+- synchronize
+- failed sync
+
+ALERT TESTS
+- normal
+- warning
+- critical
+- acknowledgement
+- mute
+- resolve
+- duplicate prevention
+
+NOTIFICATION TESTS
+- foreground
+- background
+- locked screen
+- permission denied
+- sound disabled
+- vibration disabled
+
+MULTI-PATIENT TESTS
+- patient A critical
+- patient B normal
+- patient C disconnected
+
+CALIBRATION TESTS
+- full
+- empty
+- invalid
+- persistence
+
+DATA TESTS
+- restart
+- migration
+- corruption
+
+============================================================
+57. REAL HARDWARE TESTING
+============================================================
+
+Do not stop with simulator tests.
+
+Where hardware is available:
+
+test actual ESP32
+test actual BLE
+test actual sensor
+test actual buzzer
+test actual Android phone
+test actual notification
+
+Document exactly what is physically verified.
+
+============================================================
+58. DO NOT FABRICATE RESULTS
+============================================================
+
+Never invent:
+
+- accuracy
+- latency
+- battery life
+- sensor performance
+- successful BLE range
+- medical performance
+- clinical benefit
+
+Only report measured values.
+
+If not measured:
+NOT VERIFIED.
+
+============================================================
+59. DOCUMENTATION TRUTH
+============================================================
+
+After implementation, documentation must match the actual code.
+
+Do not leave documentation claiming:
+
+"Camera implemented"
+
+if camera is not implemented.
+
+Do not leave documentation claiming:
+
+"100% tests pass"
+
+if tests do not exist.
+
+Do not leave documentation claiming:
+
+"clinical compliance"
+
+without authoritative evidence and appropriate validation.
+
+============================================================
+60. PHASED EXECUTION
+============================================================
+
+PHASE 0
+FORENSIC AUDIT
+
+PHASE 1
+RECOVERY PLAN
+
+PHASE 2
+ARCHITECTURE / STATE FOUNDATION
+
+PHASE 3
+NURSE UI REBUILD
+
+PHASE 4
+PATIENT / WARD / BED / BOTTLE / FLUID SYSTEM
+
+PHASE 5
+REAL BLE CONNECTION
+
+PHASE 6
+REAL MONITORING ENGINE
+
+PHASE 7
+REAL THRESHOLD SYSTEM
+
+PHASE 8
+REAL ALERT / ALARM ENGINE
+
+PHASE 9
+BACKGROUND / NOTIFICATION RELIABILITY
+
+PHASE 10
+MULTI-PATIENT DASHBOARD
+
+PHASE 11
+CALIBRATION / SENSOR HARDENING
+
+PHASE 12
+ENGINEERING / ADMIN SYSTEM
+
+PHASE 13
+PERSISTENCE / MIGRATION
+
+PHASE 14
+TESTING
+
+PHASE 15
+REGRESSION
+
+PHASE 16
+FINAL APK BUILD
+
+PHASE 17
+FINAL REAL-HARDWARE VALIDATION
+
+Do not skip directly to visual polish.
+
+============================================================
+61. DO NOT ASK EXCESSIVE QUESTIONS
+============================================================
+
+If an implementation choice can be safely determined by inspection/research:
+
+MAKE THE DECISION.
+
+Ask only when:
+
+- a decision materially changes architecture
+- a required external credential is missing
+- a physical hardware fact cannot be inferred
+- a user decision is genuinely required
+
+Do not stop progress for minor uncertainties.
+
+============================================================
+62. WHEN YOU FIND A BLOCKER
+============================================================
+
+Do not fake completion.
+
+State:
+
+BLOCKER
+WHY
+WHAT WAS VERIFIED
+WHAT IS MISSING
+WHAT CAN STILL BE COMPLETED
+
+Then continue with independent work where safe.
+
+============================================================
+63. FINAL GOD-LEVEL VERIFICATION
+============================================================
+
+Before claiming completion, perform a full audit:
+
+PRODUCT
+Is the workflow understandable?
+
+UX
+Can a low-technical-literacy nurse operate it?
+
+FUNCTIONAL
+Do buttons actually work?
+
+BLE
+Is connection real?
+
+SENSOR
+Is the level data real?
+
+STATE
+Is data consistent across screens?
+
+ALERT
+Does alert trigger correctly?
+
+ALARM
+Can alarm be controlled and dismissed?
+
+NOTIFICATION
+Does it actually arrive?
+
+BACKGROUND
+Does it behave correctly when app is not visible?
+
+PERSISTENCE
+Does data survive restart?
+
+MULTI-PATIENT
+Are patient states isolated?
+
+SECURITY
+Is sensitive information handled responsibly?
+
+PERFORMANCE
+Is it stable?
+
+TESTING
+Was it actually tested?
+
+DOCUMENTATION
+Does documentation match reality?
+
+============================================================
+64. COMPLETE USER JOURNEY TEST
+============================================================
+
+Perform this exact simulated/manual journey:
+
+1. Launch app
+2. Complete onboarding
+3. Open dashboard
+4. Add patient
+5. Select ward
+6. Select bed
+7. Select bottle capacity
+8. Select fluid
+9. Add custom value if required
+10. Connect real/mock device
+11. Confirm connection
+12. Calibrate if required
+13. Set warning threshold
+14. Set critical threshold
+15. Start monitoring
+16. Leave screen
+17. Receive live level
+18. Drop level
+19. Trigger warning
+20. Trigger critical
+21. Receive notification
+22. Hear alarm if enabled
+23. Verify device buzzer if enabled
+24. Lock phone
+25. Test alert behavior
+26. Acknowledge
+27. Mute
+28. Resolve
+29. Restore normal
+30. View history
+31. Reopen patient
+32. Restart app
+33. Verify persisted configuration
+34. Disconnect device
+35. Verify offline warning
+36. Reconnect
+37. Verify recovery
+
+Any failure must be documented and fixed where possible.
+
+============================================================
+65. FINAL ACCEPTANCE CRITERIA
+============================================================
+
+The project is NOT DONE until:
+
+[ ] Nurse workflow is understandable.
+[ ] UI is no longer overcrowded.
+[ ] No major screen contains unnecessary dozens of buttons.
+[ ] Technical details are hidden from normal users.
+[ ] Patient creation works.
+[ ] Ward works.
+[ ] Bed works.
+[ ] Bottle capacity works.
+[ ] Custom bottle works.
+[ ] Fluid presets work.
+[ ] Custom fluid works.
+[ ] Patient persistence works.
+[ ] Multi-patient support works.
+[ ] Real BLE connection works.
+[ ] Fake connection behavior is removed.
+[ ] Real sensor data is accepted.
+[ ] Stale data is detected.
+[ ] Threshold works.
+[ ] Threshold sync works.
+[ ] Warning works.
+[ ] Critical alert works.
+[ ] Phone notification works.
+[ ] Phone sound works where permitted.
+[ ] Phone vibration works where permitted.
+[ ] Device buzzer works.
+[ ] Alarm can be muted.
+[ ] Alarm can be acknowledged.
+[ ] Alarm can be resolved.
+[ ] Notification flooding is fixed.
+[ ] Device disconnect is detected.
+[ ] Sensor errors are detected.
+[ ] Background behavior is tested.
+[ ] Locked-screen behavior is tested.
+[ ] App restart recovery is tested.
+[ ] No major button is fake.
+[ ] No major UI feature is dead.
+[ ] Demo mode is clearly labeled if present.
+[ ] Engineering tools are separated.
+[ ] Documentation matches actual implementation.
+[ ] Tests exist.
+[ ] Tests pass or failures are documented.
+[ ] No fabricated metrics exist.
+[ ] No clinical claims are falsely presented.
+[ ] Final APK builds successfully.
+
+============================================================
+66. FINAL REPORT
+============================================================
+
+At the end provide:
+
+A. WHAT THE ORIGINAL APP REALLY CONTAINED
+
+B. WHAT WAS BROKEN
+
+C. WHAT WAS KEPT
+
+D. WHAT WAS REBUILT
+
+E. WHAT WAS REMOVED / HIDDEN
+
+F. UI / UX CHANGES
+
+G. PATIENT SYSTEM
+
+H. BLE SYSTEM
+
+I. SENSOR SYSTEM
+
+J. ALERT / ALARM SYSTEM
+
+K. NOTIFICATION SYSTEM
+
+L. BACKGROUND EXECUTION
+
+M. MULTI-PATIENT SYSTEM
+
+N. STORAGE / DATABASE
+
+O. ENGINEERING MODE
+
+P. TESTS
+
+Q. VERIFIED RESULTS
+
+R. UNVERIFIED ITEMS
+
+S. REMAINING RISKS
+
+T. BLOCKERS
+
+U. FILES CHANGED
+
+V. DEPENDENCIES CHANGED
+
+W. HOW TO BUILD APK
+
+X. HOW TO CONNECT REAL ESP32
+
+Y. HOW TO TEST
+
+============================================================
+67. FINAL OPERATING COMMAND
+============================================================
+
+DO NOT PATCH RANDOMLY.
+
+DO NOT BUILD A BEAUTIFUL FAKE APP.
+
+DO NOT CREATE DEMO BUTTONS DISGUISED AS REAL FUNCTIONALITY.
+
+DO NOT REWRITE EVERYTHING WITHOUT INSPECTION.
+
+DO NOT STOP AFTER THE UI LOOKS GOOD.
+
+DO NOT CLAIM SUCCESS WITHOUT VERIFICATION.
+
+DO NOT INVENT MEDICAL PERFORMANCE.
+
+DO NOT INVENT SENSOR ACCURACY.
+
+DO NOT INVENT BLE FUNCTIONALITY.
+
+DO NOT ASSUME DOCUMENTATION IS IMPLEMENTATION.
+
+WORK LIKE A SENIOR RECOVERY ENGINEER:
+
+INSPECT
+→ UNDERSTAND
+→ MAP
+→ PRIORITIZE
+→ RESEARCH
+→ ARCHITECT
+→ REBUILD
+→ CONNECT
+→ TEST
+→ BREAK
+→ FIX
+→ RETEST
+→ VERIFY
+→ DOCUMENT
+
+THE FINAL PRODUCT MUST FOLLOW:
+
+SIMPLE FOR THE NURSE.
+DEEP FOR THE ENGINEER.
+REAL FOR THE HARDWARE.
+REAL FOR THE SOFTWARE.
+REAL FOR THE ALERTS.
+REAL FOR THE NOTIFICATIONS.
+REAL FOR THE DATA.
+REAL FOR THE BUTTONS.
+REAL FOR THE TESTS.
+
+THE PRODUCT IS COMPLETE ONLY WHEN THE ENTIRE SYSTEM ACTUALLY WORKS TOGETHER.============================================================
+ADD-ON — DRIP ALERT PHYSICAL DEVICE CONCEPT & HARDWARE SYSTEM
+============================================================
+
+IMPORTANT:
+
+The mobile application is only one part of DRIP ALERT.
+
+The actual innovation consists of:
+
+PHYSICAL MONITORING DEVICE
++
+SENSING SYSTEM
++
+ESP32 PROCESSING
++
+LOCAL DISPLAY / STATUS
++
+LOCAL ALERT
++
+BLE COMMUNICATION
++
+MOBILE APPLICATION
+
+You must understand and implement the physical-device concept as a real engineering system.
+
+Do NOT treat the hardware as a decorative accessory for the app.
+
+The physical device is a primary subsystem.
+
+============================================================
+1. PROJECT CONCEPT
+============================================================
+
+Project name:
+
+DRIP ALERT
+
+Physical device working name:
+
+DRIP ALERT MONITOR
+
+Possible full product description:
+
+"A low-cost, externally mounted smart monitoring device for an IV/drip container that estimates the remaining fluid level, compares it with a user-configured threshold, provides local status/alert feedback, and communicates monitoring data to a companion mobile application."
+
+IMPORTANT:
+
+This is an EDUCATIONAL PROTOTYPE.
+
+It must NOT be connected to:
+- a human
+- a patient
+- a real clinical IV line
+- the sterile fluid pathway
+
+For all development and demonstrations, use:
+
+MOCK IV BOTTLE
++
+NON-MEDICAL DEMONSTRATION FLUID
+
+============================================================
+2. CORE HARDWARE OBJECTIVE
+============================================================
+
+The physical device must be able to conceptually perform:
+
+1. Detect / estimate the fluid level of the mock IV container.
+2. Process the measurement.
+3. Convert the measurement into an understandable level representation.
+4. Compare the level against configured thresholds.
+5. Determine monitoring status.
+6. Provide local visual feedback.
+7. Provide local audible alert when configured.
+8. Communicate the current state to the mobile application.
+9. Receive configuration from the mobile application.
+10. Detect important device/sensor failures.
+11. Preserve configuration where required.
+12. Continue local monitoring even if the phone disconnects, where the prototype architecture supports it.
+
+============================================================
+3. PHYSICAL DEVICE ARCHITECTURE
+============================================================
+
+The physical system should conceptually follow:
+
+                 MOCK IV BOTTLE
+                       │
+                       ▼
+                LEVEL SENSOR
+                       │
+                       ▼
+              ESP32 PROCESSING UNIT
+                       │
+          ┌────────────┼────────────┐
+          │            │            │
+          ▼            ▼            ▼
+       DISPLAY       LEDs         BUZZER
+          │
+          │
+          └─────────────┐
+                        ▼
+                       BLE
+                        │
+                        ▼
+                  MOBILE APP
+
+If ESP32-CAM is used:
+
+                 MOCK IV BOTTLE
+                       │
+                       ▼
+                  ESP32-CAM
+                       │
+                LEVEL DETECTION
+                       │
+                       ▼
+                  ESP32 MASTER
+                       │
+          ┌────────────┼────────────┐
+          ▼            ▼            ▼
+       DISPLAY       LEDs         BUZZER
+                       │
+                       ▼
+                      BLE
+                       │
+                       ▼
+                  MOBILE APP
+
+Do NOT assume that ESP32-CAM must be the final sensing mechanism.
+
+Compare and verify the best practical sensing method before implementing it.
+
+============================================================
+4. DEVICE ROLES
+============================================================
+
+Define clear responsibility.
+
+ESP32 MASTER:
+
+Responsible for:
+- device state
+- monitoring logic
+- threshold logic
+- alert logic
+- BLE communication
+- display
+- LEDs
+- buzzer
+- configuration
+- sensor health
+- device diagnostics
+
+LEVEL SENSOR:
+
+Responsible for:
+- detecting the physical fluid-level condition
+
+ESP32-CAM:
+
+OPTIONAL / FUTURE / ALTERNATIVE SENSOR NODE
+
+Potential responsibilities:
+- camera capture
+- liquid-boundary detection
+- visual calibration
+- level estimation
+
+Do not implement ESP32-CAM functionality unless the hardware and software actually support it.
+
+============================================================
+5. PHYSICAL ATTACHMENT
+============================================================
+
+The device should be designed to remain EXTERNAL to the mock IV bottle.
+
+Important constraints:
+
+- no puncturing the bottle
+- no contact with the fluid
+- no modification to the fluid path
+- no interference with tubing
+- no sharp exposed parts
+- no unstable mounting
+- no excessive weight on the bottle
+
+The device should ideally use:
+
+- clip
+- bracket
+- strap
+- removable holder
+- external optical/capacitive sensing arrangement
+
+depending on the selected sensing method.
+
+The mounting system must be adjustable enough to support calibration.
+
+============================================================
+6. DEVICE BODY
+============================================================
+
+Propose a compact enclosure containing:
+
+TOP / FRONT:
+
+- DRIP ALERT branding
+- display
+- status LEDs
+- primary button(s)
+
+SIDE:
+
+- power/charging
+- optional service connection
+- mounting release if needed
+
+BOTTOM / BACK:
+
+- sensor interface
+- bottle mounting system
+- camera position if applicable
+
+Keep the enclosure:
+
+- compact
+- lightweight
+- understandable
+- repairable
+- prototype-friendly
+
+Do not design an unnecessarily complex industrial enclosure.
+
+============================================================
+7. DISPLAY
+============================================================
+
+The device may include a small local display.
+
+The display should NOT show technical information by default.
+
+Normal display should show things such as:
+
+DRIP ALERT
+
+Level:
+62%
+
+Status:
+NORMAL
+
+Target:
+20%
+
+Device:
+CONNECTED
+
+or:
+
+WARNING
+
+or:
+
+CRITICAL ALERT
+
+or:
+
+DEVICE OFFLINE
+
+Do not show:
+
+GPIO
+ADC
+BLE UUID
+raw packets
+firmware logs
+
+unless Engineering Mode is intentionally activated.
+
+============================================================
+8. DISPLAY STATES
+============================================================
+
+Define clear physical-device display states.
+
+BOOT
+
+"DRIP ALERT"
+"Starting..."
+
+CONNECTING
+
+"Connecting..."
+
+READY
+
+"Ready"
+
+MONITORING
+
+"Level: 62%"
+"Monitoring"
+
+WARNING
+
+"LOW LEVEL"
+"Check Soon"
+
+CRITICAL
+
+"CRITICAL"
+"CHECK DRIP"
+
+DEVICE ERROR
+
+"SENSOR ERROR"
+
+COMMUNICATION ERROR
+
+"PHONE DISCONNECTED"
+
+CALIBRATION
+
+"CALIBRATION MODE"
+
+DEMO MODE
+
+"DEMO MODE"
+
+Never allow ambiguous status.
+
+============================================================
+9. LED SYSTEM
+============================================================
+
+Include a small, clearly understandable LED status system where hardware permits.
+
+Suggested meanings:
+
+GREEN
+= normal monitoring
+
+YELLOW / AMBER
+= warning / low level
+
+RED
+= critical alert
+
+BLUE
+= BLE / setup activity
+
+WHITE or neutral status
+= boot / setup if useful
+
+IMPORTANT:
+
+LED meaning must be consistent.
+
+Do NOT use color as the only communication method.
+
+The display and/or text state must communicate the same condition.
+
+============================================================
+10. LED BEHAVIOR
+============================================================
+
+Define:
+
+BOOT
+→ short initialization pattern
+
+CONNECTED
+→ steady or slow status indication
+
+MONITORING
+→ normal green indication
+
+WARNING
+→ yellow/amber indication
+
+CRITICAL
+→ red indication
+
+DISCONNECTED
+→ dedicated disconnected pattern
+
+SENSOR ERROR
+→ error pattern
+
+CALIBRATION
+→ calibration pattern
+
+Do not use flashing patterns unnecessarily.
+
+Avoid patterns that are visually confusing.
+
+============================================================
+11. BUZZER / LOCAL AUDIO
+============================================================
+
+The device must have a local buzzer where hardware permits.
+
+The buzzer is a REAL OUTPUT.
+
+It must not be a fake UI state.
+
+Possible states:
+
+NORMAL
+→ silent
+
+WARNING
+→ optional short periodic tone
+
+CRITICAL
+→ stronger repeated alert
+
+DEVICE ERROR
+→ distinct diagnostic pattern if useful
+
+The exact sound pattern should be chosen to:
+
+- be distinguishable
+- avoid unnecessary continuous noise
+- be controllable
+- be testable
+- avoid causing confusion
+
+The app must be able to configure whether the device buzzer is enabled.
+
+============================================================
+12. BUZZER CONTROLS
+============================================================
+
+The system should support:
+
+DEVICE BUZZER:
+ON / OFF
+
+The app sends this configuration to the device.
+
+The device stores/applies the configuration where appropriate.
+
+If:
+
+DEVICE BUZZER = OFF
+
+then critical state should NOT activate the physical buzzer.
+
+If the configuration cannot synchronize:
+
+display:
+
+CONFIG NOT SYNCED
+
+Do not fake success.
+
+============================================================
+13. PHYSICAL BUTTONS
+============================================================
+
+Use the minimum number of physical buttons necessary.
+
+Potential buttons:
+
+POWER / START
+
+SELECT / ACTION
+
+MUTE / ACKNOWLEDGE
+
+CALIBRATION
+
+But do not add four or five buttons just because they are possible.
+
+Prefer:
+
+1 primary button
++
+1 alert/mute button
+
+where practical.
+
+Every physical button must have:
+
+- short press behavior
+- long press behavior if needed
+- disabled state where applicable
+- visual feedback
+- safe behavior
+
+============================================================
+14. MUTE BUTTON
+============================================================
+
+If a physical MUTE / ACKNOWLEDGE button exists:
+
+It should NOT simply destroy the monitoring state.
+
+MUTE:
+stops or silences the physical audible alarm according to configured logic.
+
+Monitoring continues.
+
+The display should still show:
+
+CRITICAL
+or
+ALERT ACKNOWLEDGED
+
+Do not let "mute" incorrectly imply:
+
+"problem solved."
+
+============================================================
+15. ALERT ACKNOWLEDGEMENT
+============================================================
+
+Clearly distinguish:
+
+MUTE
+ACKNOWLEDGE
+RESOLVE
+
+Example:
+
+CRITICAL ALERT
+↓
+MUTE
+↓
+sound stops
+↓
+monitoring continues
+
+ACKNOWLEDGE
+↓
+system records acknowledgement
+
+RESOLVE
+↓
+only when the monitored condition returns to acceptable state or another defined prototype rule is met
+
+Do not automatically treat silence as resolution.
+
+============================================================
+16. DEVICE POWER
+============================================================
+
+Investigate the best power architecture for the prototype.
+
+Potential:
+
+- USB power during development
+- rechargeable battery for portable prototype
+- regulated battery power
+- power-bank-based prototype
+
+Do not select a battery merely because it sounds more professional.
+
+Measure actual power requirements.
+
+If battery powered:
+
+consider:
+
+- battery percentage
+- low battery warning
+- safe charging
+- power consumption
+- expected runtime
+- charging interface
+
+Do not invent runtime values.
+
+============================================================
+17. DEVICE BATTERY INDICATION
+============================================================
+
+Where actual battery measurement is implemented:
+
+show:
+
+Battery:
+82%
+
+Potential states:
+
+GOOD
+LOW
+CRITICAL
+
+If battery measurement is NOT implemented:
+
+do NOT show a fake battery percentage.
+
+Show:
+
+Battery information unavailable
+
+or do not display the metric.
+
+============================================================
+18. BLE COMMUNICATION
+============================================================
+
+BLE is the connection between:
+
+DEVICE ↔ MOBILE APP
+
+The physical device should advertise a human-readable product/device identity.
+
+Avoid requiring normal users to interpret:
+
+MAC address
+UUID
+GATT service UUID
+
+Engineering mode may show them.
+
+BLE should support:
+
+DEVICE DISCOVERY
+CONNECTION
+SERVICE DISCOVERY
+DATA NOTIFICATION
+CONFIGURATION WRITE
+DISCONNECT
+RECONNECT
+ERROR STATE
+
+============================================================
+19. DEVICE DATA SENT TO APP
+============================================================
+
+The device may send:
+
+DEVICE STATUS
+CURRENT LEVEL
+REMAINING VOLUME (if valid)
+WARNING STATE
+CRITICAL STATE
+SENSOR STATUS
+BATTERY (if implemented)
+FIRMWARE VERSION
+DEVICE IDENTIFIER
+
+Do not send meaningless high-frequency data unnecessarily.
+
+Use a reliable update strategy.
+
+============================================================
+20. APP DATA SENT TO DEVICE
+============================================================
+
+The app may send:
+
+WARNING THRESHOLD
+CRITICAL THRESHOLD
+DEVICE BUZZER ENABLE/DISABLE
+MONITORING START
+MONITORING STOP
+CALIBRATION COMMAND
+CONFIGURATION UPDATE
+
+Each important write should receive confirmation where appropriate.
+
+The app must not assume:
+
+"command sent = command accepted."
+
+============================================================
+21. DEVICE CONFIGURATION SYNC
+============================================================
+
+The device should support a conceptual configuration model:
+
+DEVICE CONFIGURATION
+
+Warning threshold
+Critical threshold
+Buzzer enabled
+Monitoring enabled
+Calibration status
+
+The configuration must have a clearly defined source of truth.
+
+Avoid silent differences between:
+
+APP SETTINGS
+
+and
+
+DEVICE SETTINGS.
+
+============================================================
+22. DEVICE STATUS MODEL
+============================================================
+
+Define explicit states:
+
+BOOT
+READY
+MONITORING
+WARNING
+CRITICAL
+MUTED
+ACKNOWLEDGED
+SENSOR_ERROR
+DISCONNECTED
+CALIBRATING
+LOW_BATTERY
+DEMO
+
+Only use states actually needed.
+
+Avoid state explosion.
+
+============================================================
+23. MONITORING ENGINE
+============================================================
+
+The device should conceptually process:
+
+RAW SENSOR DATA
+↓
+VALIDATION
+↓
+FILTERING
+↓
+CALIBRATION
+↓
+LEVEL ESTIMATION
+↓
+THRESHOLD COMPARISON
+↓
+STATUS
+↓
+LOCAL ALERT
+↓
+BLE UPDATE
+
+Do not let UI logic determine physical sensor status.
+
+============================================================
+24. SENSOR ERROR HANDLING
+============================================================
+
+Possible error conditions:
+
+- disconnected sensor
+- impossible reading
+- unstable signal
+- invalid calibration
+- sensor blocked
+- no meaningful change
+- hardware failure
+
+Device should show:
+
+SENSOR ERROR
+
+instead of producing a fake level.
+
+============================================================
+25. SENSOR FILTERING
+============================================================
+
+Investigate the real sensor.
+
+Use the simplest validated filtering strategy.
+
+Potential:
+
+median filter
+moving average
+hysteresis
+debounce
+
+Do not overengineer.
+
+The objective is:
+
+stable level
++
+fast enough response
++
+low false-trigger rate
+
+============================================================
+26. CALIBRATION SYSTEM
+============================================================
+
+The physical device must support a proper calibration workflow.
+
+Example:
+
+CALIBRATION
+
+STEP 1
+Place mock bottle at FULL state
+[CAPTURE]
+
+STEP 2
+Place mock bottle at EMPTY state
+[CAPTURE]
+
+STEP 3
+Save calibration
+
+CALIBRATION COMPLETE
+
+If more calibration points are justified:
+
+25%
+50%
+75%
+
+may be used.
+
+But only if useful.
+
+Calibration data must be stored and reused.
+
+============================================================
+27. USER-DEFINED LEVEL
+============================================================
+
+The physical device does NOT have to be physically moved every time the user chooses a different threshold.
+
+Instead:
+
+DEVICE continuously estimates level.
+
+APP chooses threshold.
+
+Example:
+
+Current:
+62%
+
+Warning:
+40%
+
+Critical:
+20%
+
+When current reaches 20%:
+
+CRITICAL ALERT
+
+This is one of the core concepts of the product.
+
+============================================================
+28. DEMONSTRATION ARCHITECTURE
+============================================================
+
+For competition/demo purposes:
+
+Use:
+
+TRANSPARENT MOCK IV BOTTLE
++
+SAFE DEMONSTRATION FLUID
++
+DRIP ALERT DEVICE
++
+ESP32
++
+SENSOR
++
+DISPLAY
++
+LED
++
+BUZZER
++
+MOBILE APP
+
+Demonstrate:
+
+100%
+↓
+80%
+↓
+60%
+↓
+40%
+↓
+20%
+↓
+CRITICAL ALERT
+
+The judges should be able to physically see:
+
+level changes
+→ device detects
+→ display changes
+→ LED changes
+→ buzzer responds
+→ phone receives alert
+
+============================================================
+29. ESP32-CAM
+============================================================
+
+ESP32-CAM is an optional/future sensing architecture unless the actual firmware implements camera detection.
+
+If implemented:
+
+ESP32-CAM
+→ capture image
+→ bottle ROI
+→ liquid boundary detection
+→ calibration
+→ level estimate
+
+Do NOT claim:
+
+"computer vision monitoring"
+
+unless the entire pipeline actually exists and is tested.
+
+============================================================
+30. PHYSICAL DEVICE USER EXPERIENCE
+============================================================
+
+A person looking only at the device should understand:
+
+Is it ON?
+Is it connected?
+Is it monitoring?
+Is level normal?
+Is there a warning?
+Is there a critical alert?
+Is there a sensor problem?
+
+The device must communicate status without requiring the phone.
+
+============================================================
+31. DEVICE + MOBILE INTERACTION
+============================================================
+
+The complete system is:
+
+                MOCK IV BOTTLE
+                      │
+                      ▼
+                  SENSOR
+                      │
+                      ▼
+                    ESP32
+             ┌────────┼────────┐
+             ▼        ▼        ▼
+          DISPLAY    LED     BUZZER
+             │
+             └─────── BLE ───────►
+                                MOBILE APP
+                                   │
+                          ┌────────┼────────┐
+                          ▼        ▼        ▼
+                       DASHBOARD ALERTS SETTINGS
+
+The app configures the device.
+
+The device reports real state.
+
+The device can alert locally.
+
+The app can alert remotely/locally according to its capabilities.
+
+============================================================
+32. FAILURE SCENARIOS
+============================================================
+
+Define behavior for:
+
+PHONE DISCONNECTED
+
+DEVICE CONTINUES LOCAL MONITORING
+where supported.
+
+DEVICE DISCONNECTED FROM PHONE
+
+APP:
+DEVICE OFFLINE
+
+SENSOR FAILURE
+
+DEVICE:
+SENSOR ERROR
+
+APP:
+SENSOR ERROR
+
+LOW BATTERY
+
+DEVICE:
+LOW BATTERY
+
+APP:
+LOW BATTERY WARNING
+
+INVALID CONFIGURATION
+
+DEVICE:
+CONFIG ERROR
+
+APP:
+CONFIGURATION NOT APPLIED
+
+============================================================
+33. DEVICE REBOOT
+============================================================
+
+After reboot:
+
+DEVICE
+→ BOOT
+→ LOAD CONFIG
+→ INITIALIZE SENSOR
+→ INITIALIZE BLE
+→ READY
+→ MONITORING
+
+Do not claim:
+
+MONITORING
+
+until all required subsystems are actually ready.
+
+============================================================
+34. SAFE DEFAULTS
+============================================================
+
+On boot or configuration failure:
+
+Prefer safe prototype defaults.
+
+For example:
+
+- no misleading "connected" state
+- no fake level
+- no fake battery
+- no fake calibration
+- no false success
+- no silent sensor failure
+
+Show clear state.
+
+============================================================
+35. DEVICE DIAGNOSTICS
+============================================================
+
+Engineering mode may display:
+
+DEVICE ID
+FIRMWARE
+BLE STATUS
+SENSOR RAW VALUE
+CALIBRATION STATUS
+CURRENT LEVEL
+THRESHOLD
+BATTERY
+ERROR CODE
+
+Normal nurse mode should not expose these technical values.
+
+============================================================
+36. DEVICE STATUS LED + DISPLAY CONSISTENCY
+============================================================
+
+The same real system state must drive:
+
+LED
+DISPLAY
+BUZZER
+BLE
+APP
+
+Do NOT allow:
+
+LED = RED
+while
+APP = NORMAL
+
+The monitoring state should have a single source of truth.
+
+============================================================
+37. HARDWARE COMPONENT EVALUATION
+============================================================
+
+Inspect and verify the exact hardware available.
+
+Current known development hardware may include:
+
+- ESP32 board
+- ESP32-CAM
+- USB-C cable
+
+Potential additional components:
+
+- display
+- LED(s)
+- buzzer
+- buttons
+- power source
+- breadboard
+- jumper wires
+- sensor components
+- mounting bracket
+- resistors
+- transistor/driver where required
+- battery measurement circuit where required
+
+DO NOT assume I already own these components.
+
+Classify:
+
+ALREADY AVAILABLE
+REQUIRED
+OPTIONAL
+FUTURE
+
+============================================================
+38. HARDWARE COST CONTROL
+============================================================
+
+Prefer:
+
+LOW COST
++
+SIMPLE
++
+RELIABLE
++
+EASY TO REPLACE
++
+EASY TO DEMONSTRATE
+
+Do not add expensive sensors or components unless they provide a meaningful improvement.
+
+============================================================
+39. HARDWARE SAFETY
+============================================================
+
+Prototype requirements:
+
+- low-voltage electronics
+- insulated wiring
+- no exposed dangerous conductors
+- secure mounting
+- no sharp edges
+- safe battery handling
+- no contact with medical fluid
+- no patient testing
+
+============================================================
+40. FINAL PHYSICAL DEVICE FEATURE SET
+============================================================
+
+The implementation team should evaluate the following final feature set:
+
+CORE
+
+[ ] External bottle attachment
+[ ] Level sensing
+[ ] ESP32 processing
+[ ] Calibration
+[ ] Configurable warning threshold
+[ ] Configurable critical threshold
+[ ] BLE
+[ ] Local display
+[ ] Status LED
+[ ] Local buzzer
+[ ] Device configuration
+[ ] Sensor error detection
+[ ] Device disconnect state
+[ ] Optional battery monitoring
+[ ] Mobile integration
+
+OPTIONAL / FUTURE
+
+[ ] ESP32-CAM
+[ ] Computer vision
+[ ] QR device pairing
+[ ] Advanced calibration
+[ ] Battery-powered enclosure
+[ ] Advanced diagnostics
+
+Do not implement future items as fake functionality.
+
+============================================================
+41. ENGINEERING REQUIREMENT
+============================================================
+
+Every physical feature must have:
+
+PURPOSE
+INPUT
+PROCESSING
+OUTPUT
+FAILURE MODE
+TEST METHOD
+
+Example:
+
+BUZZER
+
+Purpose:
+Local alert
+
+Input:
+Alert state
+
+Processing:
+Alert engine
+
+Output:
+Audible pattern
+
+Failure:
+Buzzer disconnected
+
+Test:
+Trigger controlled mock critical state
+
+============================================================
+42. DEVICE TEST MATRIX
+============================================================
+
+Test:
+
+BOOT
+BLE
+SENSOR
+CALIBRATION
+LEVEL
+THRESHOLD
+DISPLAY
+LED
+BUZZER
+PHONE CONNECTION
+DISCONNECT
+RECONNECT
+MUTE
+ALERT
+CONFIGURATION
+POWER
+LOW BATTERY if implemented
+
+Record:
+
+EXPECTED
+ACTUAL
+PASS/FAIL
+
+Never fabricate results.
+
+============================================================
+43. FINAL SYSTEM ACCEPTANCE
+============================================================
+
+The physical device is complete only when:
+
+[ ] It can physically mount to the mock bottle.
+[ ] It can obtain real sensor data.
+[ ] It can distinguish valid/invalid readings.
+[ ] Calibration works.
+[ ] Level estimation works.
+[ ] Threshold logic works.
+[ ] Warning state works.
+[ ] Critical state works.
+[ ] Display reflects actual state.
+[ ] LED reflects actual state.
+[ ] Buzzer reflects actual state.
+[ ] BLE connection is real.
+[ ] App receives real device data.
+[ ] App can send configuration.
+[ ] Device confirms configuration.
+[ ] Device can continue local monitoring if phone disconnect behavior permits.
+[ ] Errors are visible.
+[ ] No fake status is displayed.
+[ ] Prototype can be demonstrated safely using mock fluid.
+
+============================================================
+44. IMPORTANT ARCHITECTURAL PRINCIPLE
+============================================================
+
+The PHYSICAL DEVICE is NOT merely:
+
+"an ESP32 connected to a phone."
+
+It is a complete embedded monitoring node.
+
+Its responsibilities are:
+
+SENSE
+→ VALIDATE
+→ PROCESS
+→ DECIDE
+→ DISPLAY
+→ ALERT
+→ COMMUNICATE
+
+The MOBILE APP responsibilities are:
+
+CONFIGURE
+→ MONITOR
+→ VISUALIZE
+→ NOTIFY
+→ MANAGE PATIENT/DEVICE
+→ STORE HISTORY
+→ PROVIDE USER CONTROL
+
+This separation must be maintained.
+
+============================================================
+45. FINAL PRODUCT CONCEPT
+============================================================
+
+Final conceptual system:
+
+             DRIP ALERT MONITOR
+                  DEVICE
+                     │
+     ┌───────────────┼────────────────┐
+     │               │                │
+     ▼               ▼                ▼
+  SENSOR          ESP32           USER I/O
+     │               │          ┌─────┼─────┐
+     │               │          │     │     │
+     │               │       DISPLAY LED  BUTTON
+     │               │
+     │          ┌────┴─────┐
+     │          │          │
+     │        BLE        ALERT
+     │          │          │
+     │          ▼          ▼
+     │       MOBILE      BUZZER
+     │        APP
+     │
+     └────── LEVEL DATA ────────────────►
+
+The entire system must behave as ONE coherent product.
+
+============================================================
+46. FINAL RULE
+============================================================
+
+Do not implement the device based only on this description.
+
+First inspect the actual hardware, firmware, available components, and current repository.
+
+Then:
+
+VERIFY
+→ CHOOSE
+→ BUILD
+→ CONNECT
+→ TEST
+→ CORRECT
+→ RETEST
+
+Do not invent unsupported hardware.
+
+Do not invent sensor accuracy.
+
+Do not invent battery life.
+
+Do not invent camera capabilities.
+
+Do not claim medical safety.
+
+Do not claim clinical use.
+
+Build the simplest credible physical prototype that demonstrates:
+
+REAL LEVEL DETECTION
++
+REAL LOCAL STATUS
++
+REAL LOCAL ALERT
++
+REAL BLE COMMUNICATION
++
+REAL MOBILE ALERT INTEGRATION
+
+The objective is:
+
+A small, understandable, low-cost physical DRIP ALERT monitor that works as a genuine embedded device rather than a decorative ESP32 accessory.
